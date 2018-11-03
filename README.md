@@ -31,6 +31,8 @@ Please follow us for updates
 * (50%) 50 000 000 GSE 
 * The batch to be sold in the current sale. No more than 50% are offered at this stage.
 ### HARD CAP 
-* $15 000 000 The maximum amount of investment to be raised at this stage
+* $15 000 000 
+* The maximum amount of investment to be raised at this stage
 ### SOFT CAP 
-* $1 000 000 The minimum amount of investment to be raised at this stage
+* $1 000 000 
+* The minimum amount of investment to be raised at this stage
