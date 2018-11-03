@@ -1,5 +1,0 @@
-@(account: models.Account, posts: Seq[models.Post])(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
-
-@profile("blog", account) {
-  @app.common.postsList(posts)      
-}

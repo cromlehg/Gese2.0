@@ -1,8 +1,0 @@
-@(active: String, account: models.Account)(content: Html)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
-@app.common.main("profile") { } {
-  @profileHeader(account)
-  @profileMenu(active, account)
-  @base.common.components.container() {
-    @content 
-  }
-} { }

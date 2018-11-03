@@ -1,8 +1,0 @@
-@()(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
-
-@app.common.commonAuthRegPage("finished") {
-  <h2 class="text-center">Success!</h2>
-  <h4 class="text-center mb-4 mt-4">Almost there</h4>
-  <p class="text-center mb-5"><b>Congratulations!</b> You can start using our platform. Please, proceed to login page</p>  
-  <p class="text-center"><a class="btn btn-outline-primary" href="@sside.routes.AccountsController.login()">Sign in</a></p>
-}
