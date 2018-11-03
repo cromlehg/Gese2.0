@@ -1,0 +1,8 @@
+@(stats: models.Stats)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+@dev.common.main("status") { } {
+  @base.common.components.container() {
+    @base.common.components.row() {
+      @base.common.components.table(Seq("parameter", "value"), stats.namesToValues)
+    }
+  }
+} { }

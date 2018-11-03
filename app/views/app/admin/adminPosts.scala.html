@@ -1,0 +1,50 @@
+@(account: models.Account, posts: Seq[models.Post], linkView: String, pageId: Int, pagesCount: Int)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext, req: play.api.mvc.RequestHeader)
+
+@app.admin.adminMain("posts") { } {
+  @base.common.components.container() {
+
+    @app.admin.paginationControlForPosts(pageId, pagesCount)
+ 
+    <div class="row">
+    @base.common.components.table(Seq("id", "type", "title", "created", "moderation", "actions"), posts.map( post => Seq(
+    	post.id, 
+    	if(post.postType == models.PostType.ARTICLE) {
+    	  Html("<span class=\"badge badge-secondary\">article</span>")
+    	} else if(post.postType == models.PostType.PRODUCT) {
+    	  Html("<span class=\"badge badge-success\">product</span>")
+    	} else {
+    	  Html("<span class=\"badge badge-info\">review</span>")
+    	}
+    	, 
+    	Html("<a href=\"" + linkView + post.id + "\" target=\"blank\">" + post.getTrimedTitle(50) + "</a>"),
+    	post.createdPrettyTime,
+    	if(post.moderateStatus == models.ModerateStatus.NEED_A_MODERATION) {
+    	  Html("<span class=\"badge badge-secondary\">need</span>")
+    	} else if(post.moderateStatus == models.ModerateStatus.SUCCESS) {
+    	  Html("<span class=\"badge badge-success\">success</span>")
+    	} else {
+    	  Html("<span class=\"badge badge-error\">failed</span>")
+    	} 
+    	,
+    	if(post.moderateStatus == ModerateStatus.FAILED) {
+    	    Html("<a href=\"" + sside.routes.AdminController.removePost(post.id) + "\" class=\"badge badge-primary\">remove</a>" + 
+               "<a href=\"" + sside.routes.AdminController.moderatePost(post.id, models.ModerateStatus.SUCCESS) + "\" class=\"badge badge-success\">success</a>")   
+    	} else if(post.moderateStatus == ModerateStatus.SUCCESS) {
+    		Html("<a href=\"" + sside.routes.AdminController.removePost(post.id) + "\" class=\"badge badge-primary\">remove</a>" + 
+             "<a href=\"" + sside.routes.AdminController.moderatePost(post.id, models.ModerateStatus.FAILED) + "\" class=\"badge badge-primary\">failed</a>")     		
+    	} else if(post.moderateStatus == ModerateStatus.NEED_A_MODERATION) {
+    		Html("<a href=\"" + sside.routes.AdminController.removePost(post.id) + "\" class=\"badge badge-primary\">remove</a>" + 
+             "<a href=\"" + sside.routes.AdminController.moderatePost(post.id, models.ModerateStatus.SUCCESS) + "\" class=\"badge badge-success\">success</a>" +  
+             "<a href=\"" + sside.routes.AdminController.moderatePost(post.id, models.ModerateStatus.FAILED) + "\" class=\"badge badge-primary\">failed</a>")     		
+    	}    	    	    	
+    	)))
+    </div>
+    
+    @app.admin.paginationControlForPosts(pageId, pagesCount)
+     
+  }
+} { 
+
+}
+
+

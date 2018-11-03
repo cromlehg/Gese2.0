@@ -1,0 +1,13 @@
+@(account: models.Account)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+
+<div class="jumbotron jumbotron-fluid" style="background-image: url(@account.background.getOrElse(""));">
+  <div class="container" style="text-align: center; color: white;">
+    <div class="bs-post-view-top-panel">
+      <img src="@account.avatar.getOrElse("/assets/images/avatar.png")" class="rounded-circle" alt="avatar" width="48" height="48">
+      <span style="font-weight: 600; margin-left: 10px; font-size: 2rem">@account.displayName</span>
+    </div>  
+    <p class="lead">@account.about.getOrElse("")</p>
+    <p class="lead">@if(account.postsCount>0) { @if(account.postsCount == 1) { 1 post } @if(account.postsCount > 1) { @account.postsCount posts } }</p>
+    <p class="lead"><i class="fa fa-home" style="color: #white;"></i>Joined @account.createdPrettyTime</p>
+  </div>
+</div>

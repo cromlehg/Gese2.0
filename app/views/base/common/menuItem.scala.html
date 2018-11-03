@@ -1,0 +1,12 @@
+@(active: String, name: String, call: Call, icon: Option[String] = None)
+<li class="nav-item @if(active == name) { active }">
+  <a class="nav-link" href="@call">
+  @if(icon.isDefined) {
+    <i class="fa fa-@icon.get"></i>
+    <span>@name</span>
+  }
+  @if(icon.isEmpty) {
+    @name
+  }
+  </a>        
+</li>

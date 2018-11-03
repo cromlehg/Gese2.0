@@ -1,0 +1,23 @@
+@(tableHeaders: Seq[String], tableRows: Seq[Seq[_]])(implicit flash: Flash, messages: Messages)
+@if(tableRows.length > 0) {
+<table class="table">
+  @if(tableHeaders.length > 0) {
+  <thead>
+    <tr>
+      @for(tableHader <- tableHeaders) {
+      <th scope="col">@tableHader</th>
+      }
+    </tr>
+  </thead>
+  }
+  <tbody>
+    @for(tableRow <- tableRows) {
+    <tr>
+     @for(tableCell <- tableRow) {
+     <td>@tableCell</td>
+     }
+    </tr>
+    }
+  </tbody>
+</table>
+}

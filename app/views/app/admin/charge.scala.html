@@ -1,0 +1,21 @@
+@(inForm: Form[_])(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+
+@implicitVerticalFC = @{ b4.vertical.fieldConstructor() }
+
+@app.admin.adminMain("charge") { } {
+  @base.common.components.container() {
+    <div class="container bs-authreg-container">
+      
+        <h2 class="mb-4">Charge user balance</h2>
+        <p class="mb-5">You can change user balance with delta. ATTENTION: You should know user balances before send changes.</p>
+  
+        @b4.form(sside.routes.AdminController.chargeProcess()) {
+          @b4.text( inForm("login"), '_label -> "Login or email" )
+          @b4.select( inForm("currencyId"), options = Seq("1"->"GESE", "2"->"GESE ENERGY", "3"->"GESE DOLLAR"), '_label -> "Currency", 'readonly -> false )
+          @b4.text( inForm("value"), '_label -> "Amount (delta)" )
+          @b4.submit('_class -> "mt-5", 'class -> "btn btn-outline-primary btn-block"){ Send changes }   
+        }
+       
+    </div>   
+  }
+} { }

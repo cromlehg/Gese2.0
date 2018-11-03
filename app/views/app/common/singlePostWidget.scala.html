@@ -1,0 +1,24 @@
+@(post: models.Post)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+  <div class="row">
+    <div class="container" style="margin: 10px;">
+      <div class="row">
+        <div class="container bs-post-top-panel" style="margin-bottom: 10px;">
+          <img src="@post.ownerOpt.flatMap(_.avatar).getOrElse("/assets/images/avatar.png")" class="rounded-circle" alt="avatar" width="24" height="24">
+          <span style="font-weight: 600;"><a href="@sside.routes.AccountsController.blog(post.ownerOpt.map(_.id).getOrElse(0),1)">@post.ownerOpt.map(_.displayName).getOrElse("")</a></span>
+          <span style="margin-left: 5px; color: #788187; font-weight: 600;">@post.createdPrettyTime</span> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 bs-post-thumbnail-row">
+          <img class="bs-post-thumbnail" src="@post.thumbnailOpt.getOrElse("#")" alt="@post.title" style="width: 100%; max-width: 155px; max-height: 120px;">
+        </div>
+        <div class="col-lg-10">
+            <h5 class="bs-post-title"><a href="@sside.routes.PostsController.viewPost(post.id)">@post.title</a></h5>
+            <p>@post.description ... </p>
+            <i class="fa fa-thumbs-up" style="color: #788187;"></i><span style="margin-left: 10px;">$@post.reward.rewardEquvalent</span>
+            <i class="fa fa-comments" style="color: #788187; margin-left: 20px;"></i><span style="margin-left: 10px;">@post.commentsCount</span>
+            <span style="margin-left: 20px;">@post.likesCount votes</span>
+        </div>        
+      </div>
+    </div>
+  </div>

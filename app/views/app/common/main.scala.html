@@ -1,0 +1,11 @@
+@(activeMenu: String)(headerScripts: Html)(content: Html)(afterScripts: Html)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+@base.common.html(base.common.head(headerScripts)) {
+  @base.common.body {
+    @menu(activeMenu)
+    <main role="main" class="main-content">
+    @base.common.components.flashmsgs.flashMessages()
+    @content
+    </main>
+    @base.common.footer { }
+  } { @afterScripts }
+}

@@ -1,0 +1,18 @@
+@(balances: Seq[models.Balance])(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+@dev.common.main("balances") { } {
+  @base.common.components.container() {
+    @base.common.components.row() {
+      @base.common.components.table(
+      	Seq("id", "owner id", "owner type", "currency", "updated", "balance type", "value"),
+      	balances.map(balance => Seq(
+      		balance.id.toString,
+      		balance.ownerId,
+      		models.TargetType.strById(balance.ownerType),
+      		models.CurrencyType.strById(balance.currencyId.toInt),
+      		balance.updated,
+      		models.BalanceType.strById(balance.balanceType),
+      		balance.value
+      	)))
+    }
+  }
+} { }

@@ -1,0 +1,9 @@
+@(name: String)(content: Html)(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+
+@app.common.main(name) { } {
+  @base.common.components.container() {        
+    <div class="container bs-authreg-container">
+      @content
+    </div>
+  }
+} { }

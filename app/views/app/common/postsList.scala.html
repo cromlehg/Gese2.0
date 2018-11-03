@@ -1,0 +1,8 @@
+@(posts: Seq[models.Post])(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+   
+@for(post <- posts) {
+  @app.common.singlePostWidget(post)
+  @if(post != posts.last) {
+    @app.common.rowHR()
+  }
+}

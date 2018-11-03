@@ -1,0 +1,12 @@
+@()(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+
+@app.common.commonAuthRegPage("sign up") {
+  <h2>Step 2/3</h2>
+  <h4 class="mb-4 mt-4">Almost there</h4>
+  <p>To continue please click on the link in the email we've sent you.</p>
+  <p class="mb-5">Next we need to know how to contact you. Your email will be used for further registration steps.</p>
+  <p class="text-secondary mt-5">
+    Want to start registration from the beginning? Go to the first step as <a href="@sside.routes.AccountsController.registerUser()">user</a>
+    or as <a href="@sside.routes.AccountsController.registerCompany()">company</a>
+  </p>
+}

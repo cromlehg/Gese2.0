@@ -1,0 +1,7 @@
+@(posts: Seq[models.Post], category: Option[String])(implicit flash: Flash, messages: Messages, ac: controllers.AppContext)
+
+@app.common.main(category.getOrElse("posts")) { } {
+  @base.common.components.container() {    
+    @app.common.postsList(posts)      
+  }
+} { }
