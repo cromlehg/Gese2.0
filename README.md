@@ -18,11 +18,19 @@
 Please follow us for updates
 
 ## Terms of Sale
-* SYMBOL (ERC20 STANDART)
-* GESE Tokens are released on Ethereum blockchain and use highly popular token standard.
-* TICKER GSE
+### [SYMBOL](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#name)
+* [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) STANDART - GESE 
+* Tokens are released on Ethereum blockchain and use highly popular token standard.
+### [TICKER](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md#symbol)
+* GSE
 * The symbol used to identify digital asset 
-* SUPPLY / EMISSION 100 000 000 GSE The emission is limited. No more Gese tokens will be released.
-* TOKEN SALE (50%) 50 000 000 GSE The batch to be sold in the current sale. No more than 50% are offered at this stage.
-* HARD CAP $15 000 000 The maximum amount of investment to be raised at this stage
-* SOFT CAP $1 000 000 The minimum amount of investment to be raised at this stage
+### SUPPLY / EMISSION 
+* 100 000 000 GSE 
+* The emission is limited. No more Gese tokens will be released.
+### TOKEN SALE 
+* (50%) 50 000 000 GSE 
+* The batch to be sold in the current sale. No more than 50% are offered at this stage.
+### HARD CAP 
+* $15 000 000 The maximum amount of investment to be raised at this stage
+### SOFT CAP 
+* $1 000 000 The minimum amount of investment to be raised at this stage
